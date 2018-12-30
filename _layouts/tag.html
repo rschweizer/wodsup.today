@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+{%- assign tag = page.dir | split: "/" | last -%}
+{%- assign wod = site.tags[tag] | where_exp: "post","post.date >= site.time" | sort: "date", "first" | first -%} 
+{%- if wod -%}
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+      {{ wod.title | upcase | escape }} | <time datetime="{{ wod.date | date_to_xmlschema }}" itemprop="datePublished">{{ wod.date | date: "%Y-%m-%d" | upcase }}</time>
+  </header>
+
+  <div itemprop="articleBody">{{ wod.content }}</div>
+</article>
+
+{%- endif -%}

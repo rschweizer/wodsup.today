@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+{%- assign wod = site.posts | where_exp: "post","post.date >= site.time" | sort: "date", "first" | first -%} 
+{%- if wod -%}
+
+  <section class="cta">
+    <label for="box">What's the name of your box?</label>
+    <input id="box" placeholder="Type the name of your box..." />
+  </section>
+
+{%- endif -%}
