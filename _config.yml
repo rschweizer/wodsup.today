@@ -1,0 +1,19 @@
+title: WOD's UP
+author: Robert Schweizer
+email: mail@robertschweizer.me
+description: >
+  Daily workouts for individual athletes, teams and classes.
+
+instagram_username: wodsup.today
+rss: rss
+
+future: true
+timezone: UTC
+
+sass:
+  style: compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
