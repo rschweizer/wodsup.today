@@ -1,0 +1,258 @@
+%clearfix {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $brand-color;
+  }
+}
+
+blockquote {
+  color: $grey-color;
+  font-weight: 100;
+  margin: 1em 0;
+  position: relative;
+
+  &:before {
+    background-color: $grey-color-light;
+    content: '';
+    display: block;
+    height: 100%;
+    left: -1.375em;
+    position: absolute;
+    top: -0.125em;
+    width: 0.25em;
+  }
+}
+
+ol,
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  & > li {
+    padding-left: 1.5em;
+    position: relative;
+
+    &:before {
+      content: '×';
+      display: block;
+      font-style: normal;
+      left: -0.25em;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 1em;
+    }
+
+    & ul {
+      & li {
+        &:before {
+          content: '+';
+        }
+      }
+    }
+  }
+}
+
+ol > li {
+  counter-increment: custom-counter;
+
+  &:before {
+    content: counter(custom-counter);
+    font-size: 0.8em;
+    top: 0.266666666667em;
+  }
+}
+
+svg.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: #{$grey-color};
+  padding-right: 5px;
+  vertical-align: sub;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $background-color;
+  border-top: 5px solid $grey-color-dark;
+  box-sizing: border-box;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Radikal', $base-font-family;
+  font-size: 62.5%;
+  height: 100%;
+  line-height: $base-line-height;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+
+  @media screen and (min-width: 22.5em) {
+    font-size: 75%;
+  }
+
+  @media screen and (min-width: 30em) {
+    font-size: 87.5%;
+  }
+
+  @media print {
+    background-color: transparent;
+    border-top: none;
+    font-size: 62.5%;
+    margin: 6em 0 16em;
+  }
+
+  & > header,
+  & > main,
+  & > footer {
+    & .wrapper {
+      margin: 0 auto;
+      max-width: 50em;
+      padding: 0 2em;
+      width: 100%;
+    }
+  }
+
+  & > header {
+    border-bottom: 1px solid $grey-color-light;
+    padding: 2em 0;
+    width: 100%;
+
+    @media print {
+      padding: 0 0 5mm 0;
+      position: fixed;
+      top: 0;
+    }
+
+    a.site-title {
+      color: $text-color;
+      display: block;
+      font-size: 1.666666666667em;
+      font-weight: 700;
+      line-height: 1;
+      margin-top: 0.25em;
+      text-decoration: none;
+    }
+  }
+
+  & > main {
+    flex: 1 0 auto;
+    padding: 2em 0;
+
+    @media screen {
+      align-items: center;
+      display: flex;
+    }
+
+    & article {
+      align-self: flex-start;
+
+      & header {
+        margin-bottom: 2em;
+        color: $brand-color;
+        font-size: 2em;
+        font-weight: lighter;
+        text-align: center;
+      }
+
+      & h1:first-child {
+        font-style: italic;
+        text-align: center;
+
+        &:after,
+        &:before {
+          content: '"';
+          margin: 0 0.1em;
+        }
+      }
+    }
+
+    & section {
+      &.cta {
+        font-size: 1.25em;
+
+        & input,
+        & label {
+          width: 20em;
+          margin: 0 auto;
+          display: block;
+        }
+
+        & label {
+          margin-bottom: 0.5em;
+        }
+      }
+    }
+  }
+
+  & > footer {
+    @extend %clearfix;
+
+    border-top: 1px solid $grey-color-light;
+    width: 100%;
+    padding: 2em 0;
+
+    @media print {
+      bottom: 0;
+      padding: 5mm 0 0 0;
+      position: fixed;
+    }
+
+    & address {
+      margin-bottom: 2em;
+
+      @media (min-width: 40em) {
+        float: left;
+        margin-bottom: 0;
+        width: 33%;
+      }
+
+      & a {
+        color: $grey-color;
+        display: block;
+
+        &.email {
+          padding-bottom: 0.5em;
+        }
+      }
+    }
+
+    & aside {
+      color: $grey-color;
+      font-size: 0.8em;
+
+      @media (min-width: 40em) {
+        float: left;
+        width: 66%;
+      }
+
+      & p {
+        margin-top: 0;
+      }
+
+      & .copy {
+        font-size: 1.0833333333333em;
+        vertical-align: sub;
+      }
+    }
+  }
+}
