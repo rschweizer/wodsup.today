@@ -166,6 +166,35 @@ body {
     & article {
       align-self: flex-start;
 
+      @media screen {
+        &.crossfitregensburg:before {
+          content: '';
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          width: 75%;
+          max-width: 960px;
+          height: 75%;
+          max-height: 720px;
+          z-index: -1;
+          background-image: url('../images/cfrgb.png');
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          -webkit-transform: translateX(-50%) translateY(-50%) rotate(9deg);
+          -moz-transform: translateX(-50%) translateY(-50%) rotate(9deg);
+          -ms-transform: translateX(-50%) translateY(-50%) rotate(9deg);
+          transform: translateX(-50%) translateY(-50%) rotate(9deg);
+          transform-origin: 50% 50%;
+          opacity: 0.05;
+
+          @media (min-aspect-ratio: 3/4) {
+            top: 62.5%;
+            left: 62.5%;
+          }
+        }
+      }
+
       & header {
         margin-bottom: 2em;
         color: $brand-color;
