@@ -20,23 +20,43 @@
 
 @font-face {
   font-family: 'Radikal';
-  font-weight: 700;
+  font-weight: 200;
   font-style: normal;
-  src: url('../fonts/default-normal-700.eot');
-  src: url('../fonts/default-normal-700.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/default-normal-700.woff2') format('woff2'), url('../fonts/default-normal-700.woff') format('woff'),
-    url('../fonts/default-normal-700.ttf') format('truetype');
+  src: url('../fonts/default-normal-200.eot');
+  src: url('../fonts/default-normal-200.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/default-normal-200.woff2') format('woff2'), url('../fonts/default-normal-200.woff') format('woff'),
+    url('../fonts/default-normal-200.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Radikal';
-  font-weight: 700;
+  font-weight: 200;
   font-style: italic;
-  src: url('../fonts/default-italic-700.eot');
-  src: url('../fonts/default-italic-700.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/default-italic-700.woff2') format('woff2'), url('../fonts/default-italic-700.woff') format('woff'),
-    url('../fonts/default-italic-700.ttf') format('truetype');
+  src: url('../fonts/default-italic-200.eot');
+  src: url('../fonts/default-italic-200.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/default-italic-200.woff2') format('woff2'), url('../fonts/default-italic-200.woff') format('woff'),
+    url('../fonts/default-italic-200.ttf') format('truetype');
 }
+
+// @font-face {
+//   font-family: 'Radikal';
+//   font-weight: 300;
+//   font-style: normal;
+//   src: url('../fonts/default-normal-300.eot');
+//   src: url('../fonts/default-normal-300.eot?#iefix') format('embedded-opentype'),
+//     url('../fonts/default-normal-300.woff2') format('woff2'), url('../fonts/default-normal-300.woff') format('woff'),
+//     url('../fonts/default-normal-300.ttf') format('truetype');
+// }
+
+// @font-face {
+//   font-family: 'Radikal';
+//   font-weight: 300;
+//   font-style: italic;
+//   src: url('../fonts/default-italic-300.eot');
+//   src: url('../fonts/default-italic-300.eot?#iefix') format('embedded-opentype'),
+//     url('../fonts/default-italic-300.woff2') format('woff2'), url('../fonts/default-italic-300.woff') format('woff'),
+//     url('../fonts/default-italic-300.ttf') format('truetype');
+// }
 
 @font-face {
   font-family: 'Radikal';
@@ -56,4 +76,24 @@
   src: url('../fonts/default-italic-400.eot?#iefix') format('embedded-opentype'),
     url('../fonts/default-italic-400.woff2') format('woff2'), url('../fonts/default-italic-400.woff') format('woff'),
     url('../fonts/default-italic-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Radikal';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/default-normal-700.eot');
+  src: url('../fonts/default-normal-700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/default-normal-700.woff2') format('woff2'), url('../fonts/default-normal-700.woff') format('woff'),
+    url('../fonts/default-normal-700.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Radikal';
+  font-weight: 700;
+  font-style: italic;
+  src: url('../fonts/default-italic-700.eot');
+  src: url('../fonts/default-italic-700.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/default-italic-700.woff2') format('woff2'), url('../fonts/default-italic-700.woff') format('woff'),
+    url('../fonts/default-italic-700.ttf') format('truetype');
 }
