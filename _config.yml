@@ -6,6 +6,12 @@ description: >
 
 instagram_username: wodsup.today
 
+collections:
+  - warmup-games
+
+main_navigation:
+  - warmup-games
+
 future: true
 timezone: UTC
 

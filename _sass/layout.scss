@@ -118,29 +118,27 @@ body {
     background-color: transparent;
     border-top: none;
     font-size: 62.5%;
-    margin: 6em 0 16em;
   }
 
   & > header,
   & > main,
   & > footer {
-    & .wrapper {
+    .wrapper {
       margin: 0 auto;
       max-width: 50em;
       padding: 0 2em;
-      width: 100%;
     }
   }
 
   & > header {
+    @extend %clearfix;
+
     border-bottom: 1px solid $grey-color-light;
     padding: 2em 0;
     width: 100%;
 
     @media print {
-      padding: 0 0 5mm 0;
-      position: fixed;
-      top: 0;
+      margin-bottom: 5mm;
     }
 
     a.site-title {
@@ -148,9 +146,29 @@ body {
       display: block;
       font-size: 1.666666666667em;
       font-weight: 700;
+      float: left;
       line-height: 1;
       margin-top: 0.25em;
       text-decoration: none;
+    }
+
+    nav {
+      float: right;
+      padding-top: 0.6666666666667em;
+
+      @media print {
+        display: none;
+      }
+
+      a {
+        color: $grey-color;
+        display: block;
+        font-size: 1.125em;
+
+        &:hover {
+          color: $brand-color;
+        }
+      }
     }
   }
 
@@ -163,7 +181,15 @@ body {
       display: flex;
     }
 
-    & article {
+    header {
+      margin-bottom: 2em;
+      color: $brand-color;
+      font-size: 2em;
+      font-weight: 100;
+      text-align: center;
+    }
+
+    article {
       align-self: flex-start;
 
       @media screen {
@@ -195,15 +221,7 @@ body {
         }
       }
 
-      & header {
-        margin-bottom: 2em;
-        color: $brand-color;
-        font-size: 2em;
-        font-weight: 100;
-        text-align: center;
-      }
-
-      & h1:first-child {
+      h1:first-child {
         font-style: italic;
         text-align: center;
 
@@ -215,12 +233,12 @@ body {
       }
     }
 
-    & section {
+    section {
       &.cta {
         font-size: 1.25em;
 
-        & input,
-        & label {
+        input,
+        label {
           display: block;
           font-family: 'Radikal', $base-font-family;
           margin: 0 auto;
@@ -228,8 +246,26 @@ body {
           width: 20em;
         }
 
-        & label {
+        label {
           margin-bottom: 0.5em;
+        }
+      }
+
+      article {
+        padding-top: 4em;
+        padding-bottom: 4em;
+        border-bottom: 1px solid $grey-color-light;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        header {
+          margin-bottom: 1em;
+          color: $text-color;
+          font-size: 1.75em;
+          font-weight: 100;
+          text-align: left;
         }
       }
     }
@@ -243,12 +279,10 @@ body {
     padding: 2em 0;
 
     @media print {
-      bottom: 0;
-      padding: 5mm 0 0 0;
-      position: fixed;
+      margin-top: 5mm;
     }
 
-    & address {
+    address {
       margin-bottom: 2em;
 
       @media (min-width: 40em) {
@@ -257,7 +291,7 @@ body {
         width: 33%;
       }
 
-      & a {
+      a {
         color: $grey-color;
         display: block;
 
@@ -267,7 +301,7 @@ body {
       }
     }
 
-    & aside {
+    aside {
       color: $grey-color;
       font-size: 0.8em;
 
@@ -276,11 +310,11 @@ body {
         width: 66%;
       }
 
-      & p {
+      p {
         margin-top: 0;
       }
 
-      & .copy {
+      .copy {
         font-size: 1.0833333333333em;
         vertical-align: sub;
       }

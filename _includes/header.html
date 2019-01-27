@@ -1,5 +1,12 @@
 <header>
   <div class="wrapper">
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+    <nav>
+    {%- for path in site.main_navigation -%}
+      {%- assign dir = path | prepend: '/' | append: '/' -%}
+      {%- assign page = site.pages | where: "dir", dir | first -%}
+      <a class="page-link" href="{{ page.url | relative_url }}">{{ path | split: '-' | join: ' ' | upcase | escape }}</a>
+    {%- endfor -%}
+  </nav>
   </div>
 </header>
