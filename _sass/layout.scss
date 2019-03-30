@@ -236,20 +236,13 @@ body {
     }
 
     section {
-      &.cta {
-        font-size: 1.25em;
+      &.announcement {
+        font-size: 1.5em;
+        margin: 0 auto;
+        text-align: center;
 
-        input,
-        label {
-          display: block;
-          font-family: 'Radikal', $base-font-family;
-          margin: 0 auto;
-          padding: 0.2em 0.25em 0.1em 0.25em;
-          width: 20em;
-        }
-
-        label {
-          margin-bottom: 0.5em;
+        .icon {
+          font-size: 5em;
         }
       }
 
