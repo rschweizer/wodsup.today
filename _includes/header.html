@@ -2,10 +2,12 @@
   <div class="wrapper">
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
     <nav>
-    {%- for path in site.main_navigation -%}
-      {%- assign dir = path | prepend: '/' | append: '/' -%}
-      {%- assign page = site.pages | where: "dir", dir | first -%}
-      <a class="page-link" href="{{ page.url | relative_url }}">{{ path | split: '-' | join: ' ' | upcase | escape }}</a>
+    {%- for collection in site.collections -%}
+      {% if collection.label == 'posts' %}
+      <a class="page-link" href="{{ 'workouts' | relative_url }}">{{ 'workouts' | split: '-' | join: ' ' | upcase | escape }}</a>
+      {% else %}
+      <a class="page-link" href="{{ collection.label | relative_url }}">{{ collection.label | split: '-' | join: ' ' | upcase | escape }}</a>
+      {% endif %}
     {%- endfor -%}
   </nav>
   </div>
