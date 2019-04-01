@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<section>
+  <header>WORKOUTS</header>
+  {% assign wods = site.posts | sort: 'date' %}
+  {% for wod in wods %}
+  <article class="workout" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>{{ wod.title | upcase | escape }} | <time datetime="{{ wod.date | date_to_xmlschema }}" itemprop="datePublished">{{ wod.date | date: "%Y-%m-%d" | upcase }}</time></header>
+    <div itemprop="articleBody">{{ wod.content }}</div>
+  </article>
+  {%- endfor -%}
+</section>
