@@ -153,30 +153,6 @@ body {
       margin-top: 0.25em;
       text-decoration: none;
     }
-
-    nav {
-      @extend %clearfix;
-
-      float: right;
-      padding-top: 0.6666666666667em;
-
-      @media print {
-        display: none;
-      }
-
-      a {
-        color: $grey-color;
-        display: block;
-        float: right;
-        font-size: 1.125em;
-        margin-left: 2em;
-
-
-        &:hover {
-          color: $brand-color;
-        }
-      }
-    }
   }
 
   & > main {

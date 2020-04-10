@@ -1,14 +1,9 @@
 <header>
   <div class="content">
     <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-    <nav>
-    {%- for collection in site.collections -%}
-      {% if collection.label == 'posts' %}
-      <a class="page-link" href="{{ 'workouts' | relative_url }}">{{ 'workouts' | split: '-' | join: ' ' | upcase | escape }}</a>
-      {% else %}
-      <a class="page-link" href="{{ collection.label | relative_url }}">{{ collection.label | split: '-' | join: ' ' | upcase | escape }}</a>
-      {% endif %}
-    {%- endfor -%}
-  </nav>
+    
+    {%- comment -%}
+      {%- include nav.html -%}
+    {%- endcomment -%}
   </div>
 </header>
