@@ -1,110 +1,27 @@
-%clearfix {
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
-
-a {
-  color: $brand-color;
-  text-decoration: none;
-
-  &:hover {
-    color: $brand-color;
-  }
-}
-
-blockquote {
-  color: $grey-color;
-  font-weight: 200;
-  margin: 1em 0;
-  position: relative;
-
-  &:before {
-    background-color: $grey-color-light;
-    content: '';
-    display: block;
-    height: 100%;
-    left: -1.375em;
-    position: absolute;
-    top: -0.125em;
-    width: 0.25em;
-  }
-}
-
-ol,
-ul {
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-
-  & > li {
-    padding-left: 1.5em;
-    position: relative;
-
-    &:before {
-      content: '×';
-      display: block;
-      font-style: normal;
-      left: -0.25em;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      width: 1em;
-    }
-
-    & ul {
-      & li {
-        &:before {
-          content: '+';
-        }
-      }
-    }
-  }
-}
-
-ol > li {
-  counter-increment: custom-counter;
-
-  &:before {
-    content: counter(custom-counter);
-    font-size: 0.8em;
-    top: 0.266666666667em;
-  }
-}
-
-svg.icon {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
-  fill: #{$grey-color};
-  padding-right: 5px;
-  vertical-align: sub;
-}
-
 html {
   height: 100%;
   width: 100%;
 }
 
 body {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-user-select: none;
   background-color: $background-color;
   border-top: 5px solid $grey-color-dark;
   box-sizing: border-box;
   color: $text-color;
+  cursor: default;
+  display: -webkit-box;
   display: flex;
   flex-direction: column;
-  font-family: 'Radikal', $base-font-family;
+  font-family: "Radikal", $base-font-family;
   font-size: 62.5%;
   height: 100%;
   line-height: $base-line-height;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
-  cursor: default;
 
   @media screen and (min-width: 22.5em) {
     font-size: 75%;
@@ -114,41 +31,45 @@ body {
     font-size: 87.5%;
   }
 
-  @media print {
-    background-color: transparent;
-    border-top: none;
-    font-size: 62.5%;
+  @media screen and (min-width: 37.5em) {
+    font-size: 100%;
   }
 
   & > header,
   & > main,
   & > footer {
-    .content {
+    -webkit-box-flex: 0;
+    box-sizing: border-box;
+    flex: 0;
+
+    .container {
+      box-sizing: border-box;
       margin: 0 auto;
       max-width: 50em;
       padding: 0 2em;
       width: 100%;
-      box-sizing: border-box;
     }
   }
 
   & > header {
-    @extend %clearfix;
-
     border-bottom: 1px solid $grey-color-light;
-    padding: 2em 0;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      to left,
+      $brand-color 0%,
+      $link-color 10%,
+      $link-color 90%,
+      $brand-color 100%
+    );
+    border-image-width: 0 0 1 0;
+    padding: 1.5em 0;
     width: 100%;
-
-    @media print {
-      margin-bottom: 5mm;
-    }
 
     a.site-title {
       color: $text-color;
       display: block;
       font-size: 1.666666666667em;
       font-weight: 700;
-      float: left;
       line-height: 1;
       margin-top: 0.25em;
       text-decoration: none;
@@ -156,144 +77,306 @@ body {
   }
 
   & > main {
+    -webkit-box-align: center;
+    -webkit-box-flex: 1;
+    -webkit-box-pack: center;
+    align-items: center;
+    display: -webkit-box;
+    display: flex;
     flex: 1 0 auto;
+    justify-content: center;
     padding: 2em 0;
-
-    @media screen {
-      align-items: center;
-      display: flex;
-    }
-
-    header {
-      margin-bottom: 2em;
-      color: $brand-color;
-      font-size: 2em;
-      font-weight: 100;
-      text-align: center;
-    }
-
-    article {
-      align-self: flex-start;
-
-      @media screen {
-        &.crossfitregensburg:before {
-          content: '';
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          width: 75%;
-          max-width: 960px;
-          height: 75%;
-          max-height: 720px;
-          z-index: -1;
-          background-image: url('../images/cfrgb.png');
-          background-position: center center;
-          background-repeat: no-repeat;
-          background-size: contain;
-          -webkit-transform: translateX(-50%) translateY(-50%) rotate(9deg);
-          -moz-transform: translateX(-50%) translateY(-50%) rotate(9deg);
-          -ms-transform: translateX(-50%) translateY(-50%) rotate(9deg);
-          transform: translateX(-50%) translateY(-50%) rotate(9deg);
-          transform-origin: 50% 50%;
-          opacity: 0.05;
-
-          @media (min-aspect-ratio: 3/4) {
-            top: 62.5%;
-            left: 62.5%;
-          }
-        }
-      }
-
-      h1:first-child {
-        font-style: italic;
-        text-align: center;
-
-        &:after,
-        &:before {
-          content: '"';
-          margin: 0 0.1em;
-        }
-      }
-    }
-
-    section {
-      &.announcement {
-        font-size: 1.5em;
-        margin: 0 auto;
-        text-align: center;
-
-        .icon {
-          font-size: 5em;
-        }
-      }
-
-      article {
-        padding-top: 4em;
-        padding-bottom: 4em;
-        border-bottom: 1px solid $grey-color-light;
-
-        &:last-child {
-          border-bottom: none;
-        }
-
-        header {
-          margin-bottom: 1em;
-          color: $text-color;
-          font-size: 1.75em;
-          font-weight: 100;
-          text-align: left;
-        }
-      }
-    }
   }
 
   & > footer {
-    @extend %clearfix;
-
     border-top: 1px solid $grey-color-light;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(
+      to left,
+      $link-color 0%,
+      $brand-color 10%,
+      $brand-color 90%,
+      $link-color 100%
+    );
+    border-image-width: 1 0 0 0;
     width: 100%;
     padding: 2em 0;
 
-    @media print {
-      margin-top: 5mm;
-    }
-
-    address {
+    section {
+      font-size: 0.8em;
       margin-bottom: 2em;
 
-      @media (min-width: 40em) {
-        float: left;
-        margin-bottom: 0;
-        width: 33%;
+      h4:first-child {
+        margin-top: 0;
       }
 
       a {
         color: $grey-color;
         display: block;
-
-        &.email {
-          padding-bottom: 0.5em;
-        }
       }
     }
 
     aside {
       color: $grey-color;
-      font-size: 0.8em;
+      font-size: 0.625em;
 
-      @media (min-width: 40em) {
-        float: left;
-        width: 66%;
-      }
+      .copyright {
+        line-height: 1;
 
-      p {
-        margin-top: 0;
-      }
-
-      .copy {
-        font-size: 1.0833333333333em;
-        vertical-align: sub;
+        .copy {
+          font-size: 1.3333333333em;
+          vertical-align: sub;
+        }
       }
     }
+  }
+}
+
+section.workouts {
+  width: 100%;
+
+  .container {
+    display: -webkit-box;
+    display: flex;
+    max-width: 55em;
+    padding: 0;
+  }
+
+  header {
+    margin-bottom: 2em;
+    color: $brand-color;
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  div.column {
+    -webkit-box-align: start;
+    -webkit-box-direction: normal;
+    -webkit-box-flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-transition: 300ms;
+    align-items: flex-start;
+    background: $background-color;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: -webkit-box;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 50vh;
+    overflow: hidden;
+    position: relative;
+    transition: 300ms;
+
+    &.active {
+      -webkit-box-align: center;
+      -webkit-box-flex: 3 !important;
+      align-items: center;
+      background-color: $background-color;
+      color: $text-color;
+      cursor: default;
+      flex: 3 !important;
+
+      &:after {
+        display: none !important;
+      }
+
+      header {
+        display: none;
+      }
+
+      article {
+        -webkit-filter: none;
+        -webkit-transition: filter 150ms ease 150ms;
+        filter: none;
+        max-width: 85%;
+        opacity: 1;
+        padding: 0 2em;
+        transition: filter 150ms ease 150ms;
+        width: auto;
+
+        @media screen and (min-width: 40em) {
+          max-width: 67%;
+        }
+      }
+    }
+
+    &#tomorrow {
+      &.active {
+        -webkit-box-align: flex-start;
+        align-items: flex-start;
+
+        @media screen and (min-width: 40em) {
+          -webkit-box-align: center;
+          align-items: center;
+        }
+      }
+
+      &:after {
+        background: -webkit-gradient(
+          linear,
+          right top,
+          left top,
+          from(rgba($background-color, 0)),
+          to($background-color)
+        );
+        background: -webkit-linear-gradient(
+          right,
+          rgba($background-color, 0),
+          $background-color
+        );
+        background: linear-gradient(
+          -90deg,
+          rgba($background-color, 0),
+          $background-color
+        );
+        content: "";
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 2em;
+      }
+
+      header {
+        -webkit-transform: translate(-61.8%, -50%) rotate(-80deg);
+        transform: translate(-61.8%, -50%) rotate(-80deg);
+      }
+    }
+
+    &#today {
+      -webkit-box-flex: 0.5;
+      -webkit-transform: skewX(-10deg);
+      border-image-slice: 1;
+      border-image-source: linear-gradient(
+        to bottom,
+        $link-color 0%,
+        $brand-color 80%,
+        $brand-color 100%
+      );
+      border-image-width: 0 1;
+      border-left: 2px solid $brand-color;
+      border-right: 2px solid $brand-color;
+      flex: 0.6;
+      margin: 0 -10%;
+      transform: skewX(-10deg);
+      z-index: 1;
+
+      &.active {
+        header {
+          -webkit-transform: translateX(-50%) skewX(10deg);
+          transform: translateX(-50%) skewX(10deg);
+        }
+      }
+
+      header {
+        -webkit-transform: translateX(-50%) skewX(10deg);
+        transform: translate(-50%, -50%) skewX(10deg) rotate(-80deg);
+      }
+
+      article {
+        -webkit-transform: skewX(10deg);
+        transform: skewX(10deg);
+      }
+    }
+
+    &#yesterday {
+      &.active {
+        -webkit-box-align: flex-end;
+        align-items: flex-end;
+
+        @media screen and (min-width: 40em) {
+          -webkit-box-align: center;
+          align-items: center;
+        }
+      }
+
+      &:after {
+        background: -webkit-gradient(
+          linear,
+          left top,
+          right top,
+          from(rgba($background-color, 0)),
+          to($background-color)
+        );
+        background: -webkit-linear-gradient(
+          left,
+          rgba($background-color, 0),
+          $background-color
+        );
+        background: linear-gradient(
+          90deg,
+          rgba($background-color, 0),
+          $background-color
+        );
+        content: "";
+        display: block;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 2em;
+      }
+
+      header {
+        -webkit-transform: translate(-38.2%, -50%) rotate(-80deg);
+        transform: translate(-38.2%, -50%) rotate(-80deg);
+      }
+    }
+
+    header {
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+    }
+
+    article {
+      -webkit-filter: blur(0.6666666667em);
+      -webkit-transition: filter 50ms;
+      box-sizing: border-box;
+      filter: blur(0.6666666667);
+      opacity: 0.5;
+      padding: 0 1em;
+      transition: filter 100ms;
+      width: 66vw;
+    }
+  }
+}
+
+article.workout {
+  h1:first-child {
+    font-style: italic;
+
+    &:after,
+    &:before {
+      content: '"';
+      margin: 0 0.1em;
+    }
+  }
+
+  li {
+    margin: 1em 0;
+
+    li {
+      margin: 0;
+    }
+
+    p:first-child {
+      margin: 0;
+    }
+  }
+
+  blockquote {
+    margin-top: 0;
+  }
+
+  div > p {
+    color: $grey-color;
   }
 }

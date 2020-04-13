@@ -7,11 +7,13 @@ layout: default
 {%- assign title = collection | split: '-' | join: ' ' -%}
 {%- assign items = site[collection] | sort: 'title' -%}
 <section>
-  <header>{{ title | upcase | escape }}</header>
-  {% for item in items %}
-    <article class="{{ collection | slice: 0, size }}" itemscope itemtype="http://schema.org/BlogPosting">
-      <header>{{ item.title | escape }}</header>
-      <div itemprop="articleBody">{{ item.content }}</div>
-    </article>
-  {% endfor %}
+  <div class="container">
+    <header>{{ title | upcase | escape }}</header>
+    {% for item in items %}
+      <article class="{{ collection | slice: 0, size }}" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>{{ item.title | escape }}</header>
+        <div itemprop="articleBody">{{ item.content }}</div>
+      </article>
+    {% endfor %}
+  </div>
 </section>

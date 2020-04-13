@@ -1,24 +1,12 @@
 <footer>
-  <div class="content">
-    <h4>{{ site.title }}</h4>
-    
-    <address>
-      <strong>{{ site.author | escape }}</strong><br />
-      <a class="email" href="mailto:{{ site.email }}">{{ site.email }}</a>
-
+  <div class="container">
+    <section>
       {%- include social.html -%}
-    </address>
-
-    <aside>
-      <p>The contents of this document are subject to copyright and other 
-      related intellectual property rights and may neither in part nor 
-      as a whole be edited, duplicated, distributed or be used in any 
-      other way beyond the bounds of those protective rights without 
-      the author’s explicit written consent. Any infringements of 
-      those rights are punishable by law.</p>
       
-      <p><span class="copy">&copy;</span> 2018 All rights reserved.</p>
+      <p>{{ site.description }}</p>
+    </section>
+    <aside>
+      <div class="copyright"><span class="copy">&copy;</span> {{ site.time | date: '%Y' }} All rights reserved.</div>
     </aside>
   </div>
 </footer>
-<script src="{{ '/assets/scripts/main.js' | relative_url }}"></script>

@@ -2,7 +2,25 @@
 layout: default
 ---
 
-<section class="announcement">
-  <div class="icon">🏖</div>
-  <div class="message">We're taking a break – check the <a href="{{ 'workouts' | relative_url }}">archive</a>.</div>
+<section class="workouts">
+  <div class="container">
+    {%- assign days = "tomorrow, today, yesterday" | split: ", " -%} 
+    {%- assign today = site.posts | where_exp: "post","post.date <= site.time" | first -%}
+    {%- for day in days -%}
+      {%- if day == "tomorrow" -%} 
+        {%- assign wod = today.next -%}
+      {%- elsif day == "today" -%} 
+        {%- assign wod = today -%}
+      {%- else -%} 
+        {%- assign wod = today.previous -%}
+      {%- endif -%}
+
+      <div id="{{ day }}" class="column {% if day == 'today' %} active{% endif %}">
+        <header>{{ day }}</header>
+        <article class="workout" itemscope itemtype="http://schema.org/BlogPosting">
+          <div itemprop="articleBody">{{ wod.content }}</div>
+        </article>
+      </div>
+    {%- endfor -%}
+  </div>
 </section>

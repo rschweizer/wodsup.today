@@ -1,7 +1,8 @@
 @charset "utf-8";
 
-$base-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
-  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol' !default;
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol" !default;
 $base-font-size: 12px !default;
 $base-font-weight: 400 !default;
 $base-line-height: 1.5 !default;
@@ -9,9 +10,88 @@ $base-line-height: 1.5 !default;
 $text-color: #222828 !default;
 $background-color: #f7fafa !default;
 $brand-color: #cc2854 !default;
+$link-color: #29a3cc !default;
+$link-color-dark: #15637d !default;
 
 $grey-color: #545c5c !default;
 $grey-color-light: lighten($grey-color, 50%) !default;
 $grey-color-dark: darken($grey-color, 25%) !default;
 
-@import 'normalize', 'font', 'layout';
+@import "normalize", "font", "layout";
+
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $brand-color;
+  }
+}
+
+blockquote {
+  color: $grey-color;
+  font-weight: 200;
+  margin: 1em 0;
+  position: relative;
+
+  &:before {
+    background-color: $grey-color-light;
+    content: "";
+    display: block;
+    height: 100%;
+    left: -1.375em;
+    position: absolute;
+    top: -0.125em;
+    width: 0.25em;
+  }
+}
+
+ol,
+ul {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+
+  & > li {
+    padding-left: 1.5em;
+    position: relative;
+
+    &:before {
+      content: "×";
+      display: block;
+      font-style: normal;
+      left: -0.25em;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 1em;
+    }
+
+    & ul {
+      & li {
+        &:before {
+          content: "+";
+        }
+      }
+    }
+  }
+}
+
+ol > li {
+  counter-increment: custom-counter;
+
+  &:before {
+    content: counter(custom-counter);
+    font-size: 0.8em;
+    top: 0.266666666667em;
+  }
+}
+
+svg.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  fill: #{$grey-color};
+  padding-right: 5px;
+  vertical-align: sub;
+}
