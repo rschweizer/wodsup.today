@@ -88,7 +88,7 @@ body {
 
     .container {
       padding: 2em;
-  }
+    }
   }
 
   & > footer {
@@ -145,9 +145,9 @@ body {
         a {
           color: $grey-color;
           margin-right: 2em;
+        }
+      }
     }
-  }
-}
   }
 }
 
@@ -401,5 +401,250 @@ article.workout {
 
   div > p {
     color: $grey-color;
+  }
+}
+
+section.newsletter {
+  -ms-grid-row-align: stretch;
+  align-self: stretch;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba($background-color, 0.8)),
+      color-stop(25%, rgba($text-color, 0)),
+      color-stop(60%, rgba($text-color, 0)),
+      to(rgba($text-color, 1))
+    ),
+    url("/assets/images/workout.jpg");
+  background: -webkit-linear-gradient(
+      rgba($background-color, 0.8) 0%,
+      rgba($text-color, 0) 25%,
+      rgba($text-color, 0) 60%,
+      rgba($text-color, 1) 100%
+    ),
+    url("/assets/images/workout.jpg");
+  background: linear-gradient(
+      rgba($background-color, 0.8) 0%,
+      rgba($text-color, 0) 25%,
+      rgba($text-color, 0) 60%,
+      rgba($text-color, 1) 100%
+    ),
+    url("/assets/images/workout.jpg");
+  background-position: center;
+  background-size: cover;
+  color: $background-color;
+  width: 100%;
+
+  @media screen and (min-width: 30em) {
+    background-size: cover;
+  }
+
+  .container {
+    -webkit-box-align: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    align-items: center;
+    display: -webkit-box;
+    display: flex;
+    flex-direction: column;
+    max-width: 50em;
+    padding: 2.5em;
+  }
+
+  h1 {
+    -webkit-transform: rotate(-2deg);
+    margin: 0.5em 0 0.3333333333em;
+    max-width: 12.5em;
+    text-align: center;
+    text-transform: uppercase;
+    transform: rotate(-2deg);
+
+    @media screen and (min-width: 45em) {
+      max-width: 25em;
+    }
+
+    &:after {
+      -webkit-transform: rotate(-1deg) skewX(-10deg);
+      left: -0.5em !important;
+      top: -0.3333333333em !important;
+      padding: 0.25em 0.5em !important;
+      transform: rotate(-1deg) skewX(-10deg);
+    }
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  h4 {
+    -webkit-transform: rotate(-3deg);
+    margin: 0 0;
+    position: relative;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    z-index: 2 !important;
+
+    @media screen and (min-width: 30em) {
+      margin: 1em 0;
+    }
+
+    &:after {
+      -webkit-transform: rotate(-1deg) skewX(-10deg);
+      background-color: $text-color !important;
+      transform: rotate(-1deg) skewX(-10deg);
+    }
+  }
+
+  .description p {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+
+    &:after {
+      -webkit-transform: rotate(0deg) skewX(-10deg);
+      transform: rotate(0deg) skewX(-10deg);
+    }
+  }
+
+  h1,
+  h4,
+  .description p {
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      background-color: $brand-color;
+      content: "";
+      height: 100%;
+      left: -1em;
+      padding: 0.5em 1em;
+      position: absolute;
+      top: -0.6666666667em;
+      width: 100%;
+      z-index: -1;
+    }
+  }
+
+  #mc_embed_signup {
+    margin-bottom: 1em;
+    margin-top: 36.6666666667vh;
+    max-width: 30em;
+    width: 100%;
+
+    @media screen and (min-width: 30em) {
+      margin-top: 40vh;
+    }
+
+    @media screen and (min-width: 45em) {
+      margin-top: 43.3333333333vh;
+    }
+  }
+
+  #mc_embed_signup_scroll {
+    display: -webkit-box;
+    display: flex;
+
+    .email {
+      -webkit-box-flex: 3;
+      -webkit-transform: skew(-10deg);
+      background: $background-color;
+      box-sizing: border-box;
+      border: none;
+      flex: 3;
+      outline: none;
+      padding: 0 0.5em;
+      transform: skew(-10deg);
+
+      input {
+        -webkit-transform: skew(10deg);
+        background: $background-color;
+        box-sizing: border-box;
+        color: $text-color;
+        font-size: 1.2em;
+        font-style: italic;
+        height: 100%;
+        margin: 0;
+        padding: 0.5333333333em 0 0.3666666667em;
+        text-indent: 0.25em;
+        transform: skew(10deg);
+        width: 100%;
+
+        &::-webkit-input-placeholder {
+          line-height: 1.4;
+        }
+
+        &::-moz-placeholder {
+          line-height: 1.4;
+        }
+
+        &:-ms-input-placeholder {
+          line-height: 1.4;
+        }
+
+        &::-ms-input-placeholder {
+          line-height: 1.4;
+        }
+
+        &::placeholder {
+          line-height: 1.4;
+        }
+      }
+    }
+
+    .button {
+      -webkit-box-flex: 1;
+      -webkit-transform: skew(-10deg);
+      background: $brand-color;
+      box-sizing: border-box;
+      flex: 1;
+      margin-left: 0.25em;
+      padding: 0 0.5em;
+      text-align: center;
+      transform: skew(-10deg);
+
+      input {
+        -webkit-transform: skew(10deg);
+        background: $brand-color;
+        border: none;
+        box-sizing: border-box;
+        color: $background-color;
+        cursor: pointer;
+        height: 100%;
+        margin: 0;
+        outline: none;
+        padding: 0.8em 0.5em 0.75em;
+        text-transform: uppercase;
+        transform: skew(10deg);
+
+        &::-webkit-input-placeholder {
+          vertical-align: baseline;
+        }
+
+        &::-moz-placeholder {
+          vertical-align: baseline;
+        }
+
+        &:-ms-input-placeholder {
+          vertical-align: baseline;
+        }
+
+        &::-ms-input-placeholder {
+          vertical-align: baseline;
+        }
+
+        &::placeholder {
+          vertical-align: baseline;
+        }
+      }
+    }
+  }
+
+  .legal {
+    max-width: 25em;
+
+    a {
+      color: $link-color;
+    }
   }
 }

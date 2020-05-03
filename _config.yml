@@ -6,6 +6,9 @@ description: >
 
 google_analytics: UA-161521615-1
 instagram_username: wodsup.today
+mailchimp:
+  audience: c44b568c59
+  user: 50d586277dfeb14b7cd919e92
 
 future: true
 timezone: UTC
