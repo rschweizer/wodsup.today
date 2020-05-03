@@ -10,7 +10,7 @@ body {
   -webkit-box-direction: normal;
   -webkit-user-select: none;
   background-color: $background-color;
-  border-top: 5px solid $grey-color-dark;
+  border-top: 0.25em solid $grey-color-dark;
   box-sizing: border-box;
   color: $text-color;
   cursor: default;
@@ -85,7 +85,10 @@ body {
     display: flex;
     flex: 1 0 auto;
     justify-content: center;
-    padding: 2em 0;
+
+    .container {
+      padding: 2em;
+  }
   }
 
   & > footer {
@@ -117,8 +120,14 @@ body {
     }
 
     aside {
+      -webkit-box-align: baseline;
+      -webkit-box-pack: justify;
+      align-items: baseline;
       color: $grey-color;
+      display: -webkit-box;
+      display: flex;
       font-size: 0.625em;
+      justify-content: space-between;
 
       .copyright {
         line-height: 1;
@@ -128,7 +137,17 @@ body {
           vertical-align: sub;
         }
       }
+
+      nav {
+        font-weight: 200;
+        text-transform: uppercase;
+
+        a {
+          color: $grey-color;
+          margin-right: 2em;
     }
+  }
+}
   }
 }
 
@@ -139,7 +158,7 @@ section.workouts {
     display: -webkit-box;
     display: flex;
     max-width: 55em;
-    padding: 0;
+    padding: 2em 0;
   }
 
   header {
@@ -190,11 +209,13 @@ section.workouts {
 
       article {
         -webkit-filter: none;
-        -webkit-transition: filter 150ms ease 150ms;
+        -webkit-transition: -webkit-filter 150ms ease 150ms;
         filter: none;
         max-width: 85%;
         opacity: 1;
         padding: 0 2em;
+        transition: -webkit-filter 150ms ease 150ms;
+        transition: filter 150ms ease 150ms, -webkit-filter 150ms ease 150ms;
         transition: filter 150ms ease 150ms;
         width: auto;
 
@@ -249,7 +270,7 @@ section.workouts {
     }
 
     &#today {
-      -webkit-box-flex: 0.5;
+      -webkit-box-flex: 0.6;
       -webkit-transform: skewX(-10deg);
       border-image-slice: 1;
       border-image-source: linear-gradient(
@@ -338,11 +359,13 @@ section.workouts {
 
     article {
       -webkit-filter: blur(0.6666666667em);
-      -webkit-transition: filter 50ms;
+      -webkit-transition: -webkit-filter 100ms;
       box-sizing: border-box;
-      filter: blur(0.6666666667);
+      filter: blur(0.6666666667em);
       opacity: 0.5;
       padding: 0 1em;
+      transition: -webkit-filter 100ms;
+      transition: filter 100ms, -webkit-filter 100ms;
       transition: filter 100ms;
       width: 66vw;
     }

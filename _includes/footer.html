@@ -2,11 +2,18 @@
   <div class="container">
     <section>
       {%- include social.html -%}
-      
+
       <p>{{ site.description }}</p>
     </section>
     <aside>
-      <div class="copyright"><span class="copy">&copy;</span> {{ site.time | date: '%Y' }} All rights reserved.</div>
+      <div class="copyright">
+        <span class="copy">&copy;</span> {{ site.time | date: '%Y' }} All rights
+        reserved.
+      </div>
+      <nav id="footer-nav" aria-label="Footer">
+        <a href="{{ '/privacy' | relative_url }}">Privacy Policy</a>
+        <a href="{{ '/imprint' | relative_url }}">Imprint</a>
+      </nav>
     </aside>
   </div>
 </footer>

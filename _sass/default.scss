@@ -9,9 +9,9 @@ $base-line-height: 1.5 !default;
 
 $text-color: #222828 !default;
 $background-color: #f7fafa !default;
-$brand-color: #cc2854 !default;
-$link-color: #29a3cc !default;
-$link-color-dark: #15637d !default;
+$brand-color: #cc2856 !default;
+$link-color: #32c4f4 !default;
+$link-color-dark: #2284a4 !default;
 
 $grey-color: #545c5c !default;
 $grey-color-light: lighten($grey-color, 50%) !default;
@@ -20,11 +20,11 @@ $grey-color-dark: darken($grey-color, 25%) !default;
 @import "normalize", "font", "layout";
 
 a {
-  color: $brand-color;
+  color: $link-color-dark;
   text-decoration: none;
 
   &:hover {
-    color: $brand-color;
+    color: $link-color;
   }
 }
 
