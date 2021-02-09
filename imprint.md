@@ -9,7 +9,7 @@ Gottschalkstr. 15
 81825 München
 
 [+49 (0) 89 35827481](tel:+498935827481)  
-[mail@wodsup.today](mailto:mail@wodsup.today)
+[{{site.email}}](mailto:{{site.email}})
 
 # Disclaimer
 
